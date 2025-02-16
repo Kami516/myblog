@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { Clock, Search } from 'lucide-react'
-import { getAllPosts } from '@/lib/posts'
+import { getAllPosts, type Post } from '@/lib/posts'
 
 function getUniqueCategories(posts: any[]) {
   return Array.from(new Set(posts.map(post => post.category)))
