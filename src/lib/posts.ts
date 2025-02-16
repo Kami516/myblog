@@ -37,8 +37,8 @@ export async function getPostBySlug(slug: string): Promise<Post | null> {
       category: data.category,
       readTime: data.readTime,
     }
-  } catch (error) {
-    console.error('Error loading post:', error)
+  } catch (e) {
+
     return null
   }
 }

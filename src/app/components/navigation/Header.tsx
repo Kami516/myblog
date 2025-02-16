@@ -29,13 +29,13 @@ export default function Header() {
           
           <div className="flex items-center">
             <div className="hidden md:flex items-center space-x-8 mr-4">
-              <Link href="/blog/architecture" className="text-gray-600 hover:text-gray-900">
+              <Link href="/blog?category=architecture" className="text-gray-600 hover:text-gray-900">
                 Architecture
               </Link>
-              <Link href="/blog/devops" className="text-gray-600 hover:text-gray-900">
+              <Link href="/blog?category=devops" className="text-gray-600 hover:text-gray-900">
                 DevOps
               </Link>
-              <Link href="/blog/security" className="text-gray-600 hover:text-gray-900">
+              <Link href="/blog?category=security" className="text-gray-600 hover:text-gray-900">
                 Security
               </Link>
             </div>
