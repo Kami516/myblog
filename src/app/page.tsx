@@ -1,7 +1,6 @@
 import { Clock, ArrowRight } from 'lucide-react'
 import Link from 'next/link'
 import { getAllPosts } from '@/lib/posts'
-import { link } from 'fs'
 
 export default async function Home() {
 
