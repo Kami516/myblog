@@ -21,14 +21,15 @@ function filterPosts(posts: Post[], category?: string, search?: string): Post[] 
   })
 }
 
-export default async function BlogPage({
-  searchParams,
-}: {
-  searchParams: { category?: string; search?: string }
-}) {
+export default async function BlogPage(
+  props: {
+    searchParams: Promise<{ category?: string; search?: string }>
+  }
+) {
+  const searchParams = await props.searchParams;
   const allPosts = await getAllPosts()
   const categories = getUniqueCategories(allPosts)
-  
+
   const filteredPosts = filterPosts(allPosts, searchParams.category, searchParams.search)
 
   return (
