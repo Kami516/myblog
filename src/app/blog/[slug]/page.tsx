@@ -16,7 +16,7 @@ interface PageProps {
 }
 
 export default async function BlogPost({ params }: PageProps) {
-  const { slug } = params
+  const { slug } = await params
   const post = await getPostBySlug(slug)
 
   if (!post) {
