@@ -9,8 +9,15 @@ export async function generateStaticParams() {
   }))
 }
 
-export default async function BlogPost({ params }: { params: { slug: string } }) {
-  const post = await getPostBySlug(params.slug)
+interface PageProps {
+  params: {
+    slug: string
+  }
+}
+
+export default async function BlogPost({ params }: PageProps) {
+  const { slug } = params
+  const post = await getPostBySlug(slug)
 
   if (!post) {
     return (
