@@ -26,6 +26,7 @@ export default async function BlogPost(props: { params: Promise<{ slug: string }
   }
 
   return (
+    <div className="flex-1 min-h-[calc(100vh-64px)] bg-white">
     <article className="max-w-4xl mx-auto px-4 py-12">
       <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-100 text-blue-800">
         {post.category}
@@ -53,5 +54,6 @@ export default async function BlogPost(props: { params: Promise<{ slug: string }
         dangerouslySetInnerHTML={{ __html: post.content }}
       />
     </article>
+    </div>
   )
 }
