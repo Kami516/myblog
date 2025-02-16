@@ -1,3 +1,4 @@
+
 import { getPostBySlug, getAllPosts } from '@/lib/posts'
 import { Clock } from 'lucide-react'
 import Link from 'next/link'
@@ -9,15 +10,8 @@ export async function generateStaticParams() {
   }))
 }
 
-interface PageProps {
-  params: {
-    slug: string
-  }
-}
-
-export default async function BlogPost({ params }: PageProps) {
-  const { slug } = await params
-  const post = await getPostBySlug(slug)
+export default async function BlogPost({ params }: { params: { slug: string } }) {
+  const post = await getPostBySlug(params.slug)
 
   if (!post) {
     return (
@@ -35,11 +29,11 @@ export default async function BlogPost({ params }: PageProps) {
       <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-100 text-blue-800">
         {post.category}
       </span>
-      
+
       <h1 className="mt-4 text-4xl font-bold text-gray-900">
         {post.title}
       </h1>
-      
+
       <div className="mt-4 flex items-center space-x-4 text-sm text-gray-500">
         <span>{new Date(post.date).toLocaleDateString('en-US', {
           year: 'numeric',
