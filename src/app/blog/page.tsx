@@ -2,11 +2,11 @@ import Link from 'next/link'
 import { Clock, Search } from 'lucide-react'
 import { getAllPosts, type Post } from '@/lib/posts'
 
-function getUniqueCategories(posts: any[]) {
+function getUniqueCategories(posts: Post[]): string[] {
   return Array.from(new Set(posts.map(post => post.category)))
 }
 
-function filterPosts(posts: any[], category?: string, search?: string) {
+function filterPosts(posts: Post[], category?: string, search?: string): Post[] {
   return posts.filter(post => {
     const matchesCategory = category 
       ? post.category.toLowerCase() === category.toLowerCase()
